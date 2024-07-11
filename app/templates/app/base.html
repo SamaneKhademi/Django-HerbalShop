@@ -15,8 +15,8 @@
 
     <title>Herbal Shop | {% block title %}{% endblock %}</title>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<body dir="rtl">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">فروشگاه من</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,21 +24,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link active" aria-current="page" href="#">خانــه</a>
                     </li>
                     <li class="nav-item dropdown mx-2">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">محصولات </a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu text-end">
                             <li><a class="dropdown-item" href="#">ادویه جات</a></li>
                             <li><a class="dropdown-item" href="#">دمنوش های گیاهی</a></li>
                             <li><a class="dropdown-item" href="#">عرقیات</a></li>
                             <li><a class="dropdown-item" href="#">روغن ها</a></li>
                             <li><a class="dropdown-item" href="#">سبزی خشک</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-white" href="#">فروشگاه</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link text-white" href="#">درباره ما</a>
@@ -57,7 +54,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown mx-2">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">سمانه </a>
-                        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <ul class="dropdown-menu text-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="#">صفحه کاربری</a></li>
                             <li><a class="dropdown-item" href="#">سفارشات</a></li>
                             <li><a class="dropdown-item" href="#">تغییر رمز عبور</a></li>
@@ -82,10 +79,17 @@
         </div>
     </nav>
 
+
+
+    {% block banner-slider %}{% endblock banner-slider %}
     {% block main-content %}{% endblock main-content %}
 
-    <footer class="container-fluid fixed-bottom bg-success text-center p-2 mt-5">
-        Copyright : 2024 || Develop by : s.khademi1992@gmail.com
+
+
+    <footer class="py-5 bg-success">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright : 2024 || Develop by : s.khademi1992@gmail.com</p>
+        </div>
     </footer>
 
 
