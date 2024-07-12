@@ -1,14 +1,6 @@
 * {
     margin: 0;
     padding: 0;
-    border: 0;
-    font-weight: normal;
+    box-sizing: border-box;
 }
 
-body {
-    background: #fff;
-    direction: rtl;
-    overflow-x: hidden;
-    font-family: iranyekan;
-    display: inline;
-}
