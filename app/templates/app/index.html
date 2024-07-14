@@ -4,93 +4,135 @@
 
 
 {% block main-content %}
-<!---banner--->
-    <div>
-        <a href="#">
-            <img src="{% static 'app/images/banner/banner_1 - 222.jpg' %}" class="img-fluid" alt="..." style="width: 100%; height: auto">
-        </a>
-    </div>
+    <!--start header-->
+    <div class="container-fluid py-5 hero-header">
+            <div class="container py-5">
+                <div class="row py-5 g-5 align-items-center">
+                    <div class="t-hero-header col-md-12 col-lg-7 py-5 text-end">
+                        <h1 class="mb-4 text-secondary fw-bold">محصولاتی برای زندگی</h1>
+                        <h1 class="mb-5 display-3 text-primary">با بهترین کیفیت و قیمت</h1>
+                        <div class="position-relative  mx-auto">
+                            <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="text" placeholder="محصول مورد نظرت رو پیدا کن">
+                            <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; left: 25%;">جستجو</button>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-5">
+                        <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active rounded">
+                                    <img src="{% static 'app/images/category/category1.jpg' %}" class="img-fluid w-100 h-100 rounded" alt="First slide">
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">ادویه ها</a>
+                                </div>
+                                <div class="carousel-item rounded">
+                                    <img src="{% static 'app/images/category/category2.jpg' %}" class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">دمنوش های گیاهی</a>
+                                </div>
+                                <div class="carousel-item rounded">
+                                    <img src="{% static 'app/images/category/category3.jpg' %}" class="img-fluid w-100 h-100 rounded" alt="First slide">
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">عرقیات</a>
+                                </div>
+                                <div class="carousel-item rounded">
+                                    <img src="{% static 'app/images/category/category4.jpg' %}" class="img-fluid w-100 h-100 rounded" alt="First slide">
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">روغن ها</a>
+                                </div>
+                                <div class="carousel-item rounded">
+                                    <img src="{% static 'app/images/category/category5.jpg' %}" class="img-fluid w-100 h-100 rounded" alt="First slide">
+                                    <a href="#" class="btn px-4 py-2 text-white rounded">سبزی خشک</a>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- end header-->
 
-<!---caption--->
-    <div class="container">
-        <div class="row bg-success text-center p-5 text-white border-bottom shadow">
-            <h1 class="text-white">درباره فروشگاه</h1>
+
+        <div class="caption1 bg-success text-center p-5 text-white">
+            <h1 class="text-white">درباره فروشگاه</h1><br>
             <small class="fs-5">
                 از زمان‌های قدیم، عطاری‌ها به عنوان مراکزی برای تامین نیاز‌های سلامتی و درمانی مردم، در فرهنگ‌های مختلف جایگاه ویژه‌ای داشته‌اند. در‌واقع عطاری جزو آن دسته از مشاغلی است که در هر فرهنگ و کشوری وجود دارد. در این مراکز می‌توان لیست متنوعی از محصولات دارویی و مواد غذایی را پیدا کرد. ادویه‌ها، دمنوش‌ها، گیاهان دارویی و عرقیات گیاهی، روغنها و دانه‌های روغنی و گیاهی مهم‌ترین لیست محصولات عطاری را تشکیل می‌دهند.
             </small>
         </div>
-    </div>
-<!---End caption--->
 
-<!---products--->
-<div class="container text-center py-5">
+
+
+<!---categories--->
+<div class="titles container text-center py-5">
     <h3>دسته بندی محصولات</h3>
 </div>
 
-
 <div class="container">
     <div class="row">
-        <div class="col-lg-4 col-md-6 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none">
+        <div class="col-lg-2 col-md-3 col-sm-6 pb-4">
             <div class="goodnesssec">
                 <a href="#">
                     <div class="goodnessseccont text-center">
-                        <img src="{% static 'app/images/category/category1.jpg' %}" class="img-responsive center-block rounded-pill" style="max-width: 100%" alt="">
-                        <p class="prods">ادویه ها</p>
+                        <img src="{% static 'app/images/category/category-all.jpg' %}" class="img-responsive center-block rounded-pill shadow-lg mb-3 bg-body-tertiary rounded" style="max-width: 100%" alt="">
+                        <p class="fs-5">تمام محصولات</p>
                     </div>
                 </a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none">
+        <div class="col-lg-2 col-md-3 col-sm-6 pb-4">
             <div class="goodnesssec">
                 <a href="#">
                     <div class="goodnessseccont text-center">
-                        <img src="{% static 'app/images/category/category2.jpg' %}" class="img-responsive center-block rounded-pill" style="max-width: 100%" alt="">
-                        <p class="prods">دمنوش های گیاهی</p>
+                        <img src="{% static 'app/images/category/category1.jpg' %}" class="img-responsive center-block rounded-pill shadow-lg mb-3 bg-body-tertiary rounded" style="max-width: 100%" alt="">
+                        <p class="fs-5">ادویه ها</p>
                     </div>
                 </a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none">
+        <div class="col-lg-2 col-md-3 col-sm-6 pb-4">
             <div class="goodnesssec">
                 <a href="#">
                     <div class="goodnessseccont text-center">
-                        <img src="{% static 'app/images/category/category3.jpg' %}" class="img-responsive center-block rounded-pill" style="max-width: 100%" alt="">
-                        <p class="prods">عرقیات</p>
+                        <img src="{% static 'app/images/category/category2.jpg' %}" class="img-responsive center-block rounded-pill shadow-lg mb-3 bg-body-tertiary rounded" style="max-width: 100%" alt="">
+                        <p class="fs-5">دمنوش های گیاهی</p>
                     </div>
                 </a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none">
+        <div class="col-lg-2 col-md-3 col-sm-6 pb-4">
             <div class="goodnesssec">
                 <a href="#">
                     <div class="goodnessseccont text-center">
-                        <img src="{% static 'app/images/category/category4.jpg' %}" class="img-responsive center-block rounded-pill" style="max-width: 100%" alt="">
-                        <p class="prods">روغن ها</p>
+                        <img src="{% static 'app/images/category/category3.jpg' %}" class="img-responsive center-block rounded-pill shadow-lg mb-3 bg-body-tertiary rounded" style="max-width: 100%" alt="">
+                        <p class="fs-5">عرقیات</p>
                     </div>
                 </a>
             </div>
         </div>
-        <div class="col-lg-4 col-md-6 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s; animation-name: none">
+        <div class="col-lg-2 col-md-3 col-sm-6 pb-4">
             <div class="goodnesssec">
                 <a href="#">
                     <div class="goodnessseccont text-center">
-                        <img src="{% static 'app/images/category/category5.jpg' %}" class="img-responsive center-block rounded-pill" style="max-width: 100%" alt="">
-                        <p class="prods">سبزی خشک</p>
+                        <img src="{% static 'app/images/category/category4.jpg' %}" class="img-responsive center-block rounded-pill shadow-lg mb-3 bg-body-tertiary rounded" style="max-width: 100%" alt="">
+                        <p class="fs-5">روغن ها</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-6 pb-4">
+            <div class="goodnesssec">
+                <a href="#">
+                    <div class="goodnessseccont text-center">
+                        <img src="{% static 'app/images/category/category5.jpg' %}" class="img-responsive center-block rounded-pill shadow-lg mb-3 bg-body-tertiary rounded" style="max-width: 100%" alt="">
+                        <p class="fs-5">سبزی خشک</p>
                     </div>
                 </a>
             </div>
         </div>
     </div>
 </div>
-<!---End products--->
-
-
-
 
 {% endblock main-content %}
-
-
-
-
-
-

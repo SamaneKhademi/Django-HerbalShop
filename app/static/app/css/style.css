@@ -3,4 +3,41 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+  font-family:IRANSans;
+  font-weight: normal;
+  font-style: normal;
+}
+.font{
+    font-family: font;
+}
+.img-responsive:hover{
+    opacity: 0.5;
 
+}
+
+.hero-header{
+    background: url("../images/banner/11.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-item a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 25px;
+    background: linear-gradient(rgba(255, 181, 36, 0.7), rgba(255, 181, 36, 0.7));
+}
+@media (max-width: 991.9px) {
+.t-hero-header h3 , .t-hero-header h1{
+}
+.t-hero-header div{
+}
+}
