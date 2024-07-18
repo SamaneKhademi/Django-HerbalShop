@@ -32,6 +32,8 @@
                     <li class="nav-item dropdown mx-2">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">محصولات </a>
                         <ul class="dropdown-menu text-end">
+                            <li><a class="dropdown-item" href="{% url 'all-products' %}">تمام محصولات</a></li>
+                            <li><hr class="dropdown-divider" /></li>
                             <li><a class="dropdown-item" href="{% url 'category' 'AD' %}">ادویه جات</a></li>
                             <li><a class="dropdown-item" href="{% url 'category' 'DM' %}">دمنوش</a></li>
                             <li><a class="dropdown-item" href="{% url 'category' 'AR' %}">عرقیجات</a></li>

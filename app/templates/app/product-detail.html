@@ -1,0 +1,35 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}صفحه محصول{% endblock title %}
+
+
+{% block main-content %}
+    <div class="container py-5">
+        <div class="row flex justify-content-between">
+            <div class="img2 col-lg-5">
+                <img src="{{ product.product_image.url }}" class="image col-xs-6 col-sm-12 col-lg-12 mt-3 text-sm-center w-100 h-75" alt="">
+            </div>
+            <div class="productdetail col-lg-6">
+                <h1 style="font-size: 35px;">{{ product.title }}</h1>
+                <br>
+                <h5 >{{ product.discounted_price }} تومان /</h5>
+                <small class="text-decoration-line-through text-muted fs-5"><del>{{ product.selling_price }} تومان</del></small>
+                <br><br>
+                <h4>ویژه گی محصول</h4>
+                <ul class="fs-5">
+                    <li>{{ product.description }}</li>
+                </ul>
+                <div class="btn row flex">
+                    <button type="submit" class="d-grid gap-2 btn1 btn btn-danger p-1 m-1 btn-lg text-decoration-none text-white">افزودن به سبد خرید</button>
+                    <div class="btn btn-dark p-1 m-1 btn-lg">
+                        <a href="#" class="text-decoration-none text-white">خرید</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock main-content %}
