@@ -16,8 +16,9 @@
 
 }
 
-.hero-header{
-    background: url("../images/banner/11.jpg");
+.hero{
+    background: linear-gradient(rgba(240, 240, 240, 0.85), rgba(240, 240, 240, 0.85)), url("../images/banner/1.jpg");
+    background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-size:cover;
@@ -35,9 +36,4 @@
     font-size: 25px;
     background: linear-gradient(rgba(255, 181, 36, 0.7), rgba(255, 181, 36, 0.7));
 }
-@media (max-width: 991.9px) {
-.t-hero-header h3 , .t-hero-header h1{
-}
-.t-hero-header div{
-}
-}
+

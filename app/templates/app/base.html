@@ -19,24 +19,24 @@
 </head>
 <body class="font" dir="rtl">
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-success">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">فروشگاه من</a>
+        <div class="container-fluid my-1">
+            <a class="navbar-brand" href="{% url 'home' %}">فروشگاه من</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mb-2 mb-lg-0">
                     <li class="nav-item mx-2">
-                        <a class="nav-link active" aria-current="page" href="#">خانــه</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">خانــه</a>
                     </li>
                     <li class="nav-item dropdown mx-2">
                         <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">محصولات </a>
                         <ul class="dropdown-menu text-end">
-                            <li><a class="dropdown-item" href="#">ادویه جات</a></li>
-                            <li><a class="dropdown-item" href="#">دمنوش های گیاهی</a></li>
-                            <li><a class="dropdown-item" href="#">عرقیات</a></li>
-                            <li><a class="dropdown-item" href="#">روغن ها</a></li>
-                            <li><a class="dropdown-item" href="#">سبزی خشک</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'AD' %}">ادویه جات</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'DM' %}">دمنوش</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'AR' %}">عرقیجات</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'RO' %}">روغن</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'SB' %}">سبزیجات خشک</a></li>
                         </ul>
                     </li>
                     <li class="nav-item mx-2">
