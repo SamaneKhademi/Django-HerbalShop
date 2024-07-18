@@ -1,0 +1,20 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}ارتباط با ما{% endblock title %}
+
+
+{% block main-content %}
+    <div>
+        <img src="{% static 'app/images/header3.jpg' %}" alt="" style="width: 100%">
+    </div>
+    <div class="container py-5 text-center">
+        <h3>ارتباط با ما</h3>
+    </div>
+    <div class="row container pb-5">
+        <p class="fs-4  text-center">آدرس :</p>
+        <p class="fs-4  text-center">ایمیل :</p>
+        <p class="fs-4  text-center">تلفن :</p>
+    </div>
+
+{% endblock main-content %}
