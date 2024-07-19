@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from .models import Product
+from .forms import CustomerRegistrationForm
+from django.contrib import messages
 
 
 def home(request):
@@ -37,3 +39,16 @@ class ProductDetail(View):
     def get(self, request, pk):
         product = Product.objects.get(pk=pk)
         return render(request, 'app/product-detail.html', locals())
+
+class CustomerRegistrationView(View):
+    def get(self, request):
+        form = CustomerRegistrationForm()
+        return render(request, 'app/customerregistration.html', locals())
+    def post(self, request):
+        form = CustomerRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'ثبت نام با موفقیت انجام شد')
+        else:
+            messages.warning(request, 'مقادیر ورودی نامعتبر است')
+        return render(request, 'app/customerregistration.html', locals())
