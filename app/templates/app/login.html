@@ -1,47 +1,40 @@
 {% extends 'app/base.html' %}
 {% load static %}
 
-{% block title %}فرم ثبت نام{% endblock title %}
+{% block title %}ورود{% endblock title %}
 
 
 {% block main-content %}
     <div class="container py-5">
         <div class="row my-3 flex-row-reverse">
             <div class="col-lg-6 col-md-6 col-xs-10 mx-auto">
-                <h3>ثبت نام</h3>
+                <h4>ورود</h4>
                 <hr>
                 <form action="" method="post" novalidate class="shadow p-5">
                     {% csrf_token %}
-
                     {% for fm in form %}
                         {{ fm.label_tag }} {{ fm }}
                         <small class="text-danger">{{ fm.errors|striptags }}</small>
                         <br>
                     {% endfor %}
-
-                    <input type="submit" value="ثبت نام" class="btn btn-primary">
+                    <small><a href="#" class="text-decoration-underline">رمز عبور خود را فراموش کرده ام.</a></small>
                     <br>
-                    <div class="text-center text-primary fw-bold">
-                        <small>قبلا ثبت نام کرده اید؟ <a href="{% url 'login' %}" class="text-danger text-decoration-underline">وارد شوید</a></small>
-                    </div>
+                    <input type="submit" class="btn btn-primary mt-4" value="ورود">
 
+                    <div class="text-center text-primary fw-bold">
+                        <small> کاربر جدید هستید؟ <a href="{% url 'customerregistration' %}" class="text-danger text-decoration-underline">ثبت نام کنید.</a></small>
+                    </div>
                     {% if form.non_field_errors %}
                         {% for error in form.non_field_errors %}
                             <p class="alert alert-danger my-3">{{ error }}</p>
                         {% endfor %}
                     {% endif %}
 
-                    {% if messages %}
-                    {% for msg in messages %}
-                        <div class="alert alert-{{ msg.tags }}" role="alert">
-                            {{ msg }}
-                        </div>
-                    {% endfor %}
-                    {% endif %}
-
                 </form>
+
             </div>
         </div>
     </div>
+
 
 {% endblock main-content %}
