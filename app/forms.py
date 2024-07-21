@@ -1,10 +1,10 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordChangeForm
 from django.contrib.auth.models import User
 
 
 class LoginForm(AuthenticationForm):
-    username = UsernameField(label='نام کاربری' ,widget=forms.TextInput(attrs={'autofocus': True, 'class': 'form-control'}))
+    username = UsernameField(label='نام کاربری' ,widget=forms.TextInput(attrs={'autofocus': True, 'class':'form-control'}))
     password = forms.CharField(label='رمز عبور', widget=forms.PasswordInput(attrs={'autocomplete':'current-password', 'class':'form-control'}))
 
 
@@ -17,3 +17,7 @@ class CustomerRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
+
+
+class MyPasswordResetForm(PasswordChangeForm):
+    pass

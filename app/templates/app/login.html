@@ -17,7 +17,7 @@
                         <small class="text-danger">{{ fm.errors|striptags }}</small>
                         <br>
                     {% endfor %}
-                    <small><a href="#" class="text-decoration-underline">رمز عبور خود را فراموش کرده ام.</a></small>
+                    <small><a href="{% url 'password-reset' %}" class="text-decoration-underline">رمز عبور خود را فراموش کرده ام.</a></small>
                     <br>
                     <input type="submit" class="btn btn-primary mt-4" value="ورود">
 
