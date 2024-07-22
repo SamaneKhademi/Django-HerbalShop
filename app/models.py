@@ -24,7 +24,7 @@ class Product(models.Model):
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     mobile = models.IntegerField(default=0)
     state = models.CharField(max_length=50)

@@ -1,9 +1,9 @@
 from urllib import request
 from django.http import HttpResponse
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
-from .models import Product
+from .models import Product, Customer
 from .forms import CustomerRegistrationForm, CustomerProfileForm
 from django.contrib import messages
 
@@ -58,4 +58,44 @@ class ProfileView(View):
         form = CustomerProfileForm()
         return render(request, 'app/profile.html', locals())
     def post(self, request):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            name = form.cleaned_data['name']
+            mobile = form.cleaned_data['mobile']
+            state = form.cleaned_data['state']
+            city = form.cleaned_data['city']
+            locality = form.cleaned_data['locality']
+            zipcode = form.cleaned_data['zipcode']
+
+            reg = Customer(user=user, name=name, mobile=mobile, state=state, city=city, locality=locality, zipcode=zipcode)
+            reg.save()
+            messages.success(request, 'اطلاعات با موفقیت ثبت شد.')
+        else:
+            messages.warning(request, 'مقادیر ورودی نامعتبر است.')
         return render(request, 'app/profile.html', locals())
+
+def address(request):
+    add = Customer.objects.filter(user=request.user)
+    return render(request, 'app/address.html', locals())
+
+class updateAddress(View):
+    def get(self, request, pk):
+        add = Customer.objects.get(pk=pk)
+        form = CustomerProfileForm(instance=add)
+        return render(request, 'app/updateAddress.html', locals())
+    def post(self, request, pk):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            add = Customer.objects.get(pk=pk)
+            add.name = form.cleaned_data['name']
+            add.mobile = form.cleaned_data['mobile']
+            add.state = form.cleaned_data['state']
+            add.city = form.cleaned_data['city']
+            add.locality = form.cleaned_data['locality']
+            add.zipcode = form.cleaned_data['zipcode']
+            add.save()
+            messages.success(request, 'اطلاعات با موفقیت بروزرسانی شد.')
+        else:
+            messages.warning(request, 'مقادیر ورودی نامعتبر است.')
+        return redirect('address')

@@ -7,4 +7,4 @@ class ProductModelAdmin(admin.ModelAdmin):
 
 @admin.register(Customer)
 class CustomerModelAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'mobile', 'state', 'zipcode')
+    list_display = ('id', 'user', 'name', 'mobile', 'state', 'city', 'locality', 'zipcode')
