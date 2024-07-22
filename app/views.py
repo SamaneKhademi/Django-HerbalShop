@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from .models import Product
-from .forms import CustomerRegistrationForm
+from .forms import CustomerRegistrationForm, CustomerProfileForm
 from django.contrib import messages
 
 
@@ -55,6 +55,7 @@ class CustomerRegistrationView(View):
 
 class ProfileView(View):
     def get(self, request):
+        form = CustomerProfileForm()
         return render(request, 'app/profile.html', locals())
     def post(self, request):
         return render(request, 'app/profile.html', locals())
