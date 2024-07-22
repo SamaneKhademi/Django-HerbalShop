@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 CATEGORY_CHOICES = (
@@ -20,3 +21,16 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Customer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=200)
+    mobile = models.IntegerField(default=0)
+    state = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    locality = models.CharField(max_length=200)
+    zipcode = models.IntegerField()
+
+    def __str__(self):
+        return self.name

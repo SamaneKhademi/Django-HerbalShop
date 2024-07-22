@@ -52,3 +52,9 @@ class CustomerRegistrationView(View):
         else:
             messages.warning(request, 'مقادیر ورودی نامعتبر است')
         return render(request, 'app/customerregistration.html', locals())
+
+class ProfileView(View):
+    def get(self, request):
+        return render(request, 'app/profile.html', locals())
+    def post(self, request):
+        return render(request, 'app/profile.html', locals())
