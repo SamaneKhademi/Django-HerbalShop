@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordResetForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordResetForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from .models import Customer
 
@@ -20,6 +20,13 @@ class CustomerRegistrationForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
+class MyPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(label='رمز عبور قبلی', widget=forms.PasswordInput(attrs={'autofocus': True, 'autocomplete': 'current-password', 'class': 'form-control'}))
+    new_password1 = forms.CharField(label='رمز عبور جدید', widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'class': 'form-control'}))
+    new_password2 = forms.CharField(label='تکرار رمز عبور جدید', widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'class': 'form-control'}))
+
+
+
 class MyPasswordResetForm(PasswordResetForm):
     pass
 
@@ -37,3 +44,4 @@ class CustomerProfileForm(forms.ModelForm):
             'locality': forms.TextInput(attrs={'class': 'form-control'}),
             'zipcode': forms.NumberInput(attrs={'class': 'form-control'})
         }
+
