@@ -56,28 +56,38 @@
             </div>
             <div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    {% if user.is_authenticated %}
+
                     <li class="nav-item dropdown mx-2">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">سمانه </a>
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ request.user.username }} </a>
                         <ul class="dropdown-menu text-end" aria-labelledby="profileDropdown">
                             <li><a class="dropdown-item" href="{% url 'profile' %}">صفحه کاربری</a></li>
                             <li><a class="dropdown-item" href="#">سفارشات</a></li>
                             <li><a class="dropdown-item" href="{% url 'passwordchange' %}">تغییر رمز عبور</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">خروج</a></li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">خروج</a></li>
                         </ul>
                     </li>
+
+                    {% else %}
+
                     <li class="nav-item mx-2">
-                        <a href="#" class="nav-link text-white">سبد خرید 4</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a href="#" class="nav-link text-white">علاقه مندی ها 4</a>
+                        <a href="{% url 'customerregistration' %}" class="nav-link text-white">ثبت نام</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a href="{% url 'login' %}" class="nav-link text-white">ورود</a>
                     </li>
+
+                    {% endif %}
+
                     <li class="nav-item mx-2">
-                        <a href="{% url 'customerregistration' %}" class="nav-link text-white">ثبت نام</a>
+                        <a href="#" class="nav-link text-white">علاقه مندی ها 4</a>
                     </li>
+                    <li class="nav-item mx-2">
+                        <a href="#" class="nav-link text-white">سبد خرید 4</a>
+                    </li>
+
                 </ul>
             </div>
         </div>

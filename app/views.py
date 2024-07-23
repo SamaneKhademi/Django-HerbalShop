@@ -6,6 +6,7 @@ from django.views import View
 from .models import Product, Customer
 from .forms import CustomerRegistrationForm, CustomerProfileForm
 from django.contrib import messages
+from django.contrib.auth import logout
 
 
 def home(request):
@@ -99,3 +100,8 @@ class updateAddress(View):
         else:
             messages.warning(request, 'مقادیر ورودی نامعتبر است.')
         return redirect('address')
+
+
+def LogoutView(request):
+    logout(request)
+    return redirect('login')
