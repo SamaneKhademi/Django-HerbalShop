@@ -1,12 +1,12 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordResetForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField, PasswordResetForm, PasswordChangeForm, SetPasswordForm
 from django.contrib.auth.models import User
 from .models import Customer
 
 
 class LoginForm(AuthenticationForm):
     username = UsernameField(label='نام کاربری' ,widget=forms.TextInput(attrs={'autofocus': True, 'class':'form-control'}))
-    password = forms.CharField(label='رمز عبور', widget=forms.PasswordInput(attrs={'autocomplete':'current-password', 'class':'form-control'}))
+    password = forms.CharField(label='رمز عبور', widget=forms.PasswordInput(attrs={'class':'form-control'}))
 
 
 class CustomerRegistrationForm(UserCreationForm):
@@ -21,15 +21,18 @@ class CustomerRegistrationForm(UserCreationForm):
 
 
 class MyPasswordChangeForm(PasswordChangeForm):
-    old_password = forms.CharField(label='رمز عبور قبلی', widget=forms.PasswordInput(attrs={'autofocus': True, 'autocomplete': 'current-password', 'class': 'form-control'}))
-    new_password1 = forms.CharField(label='رمز عبور جدید', widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'class': 'form-control'}))
-    new_password2 = forms.CharField(label='تکرار رمز عبور جدید', widget=forms.PasswordInput(attrs={'autocomplete': 'current-password', 'class': 'form-control'}))
+    old_password = forms.CharField(label='رمز عبور قبلی', widget=forms.PasswordInput(attrs={'autofocus': True, 'class': 'form-control'}))
+    new_password1 = forms.CharField(label='رمز عبور جدید', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password2 = forms.CharField(label='تکرار رمز عبور جدید', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 
 
 class MyPasswordResetForm(PasswordResetForm):
-    pass
+    email = forms.EmailField(label='ایمیل', widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
+class MySetPasswordForm(SetPasswordForm):
+    new_password1 = forms.CharField(label='رمز عبور جدید', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password2 = forms.CharField(label='تکرار رمز عبور جدید', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
 class CustomerProfileForm(forms.ModelForm):
     class Meta:
