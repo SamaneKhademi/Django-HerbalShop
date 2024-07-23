@@ -21,12 +21,11 @@
                 <ul class="fs-5">
                     <li>{{ product.description }}</li>
                 </ul>
-                <div class="btn row flex">
-                    <button type="submit" class="d-grid gap-2 btn1 btn btn-danger p-1 m-1 btn-lg text-decoration-none text-white">افزودن به سبد خرید</button>
-                    <div class="btn btn-dark p-1 m-1 btn-lg">
-                        <a href="#" class="text-decoration-none text-white">خرید</a>
-                    </div>
-                </div>
+                <form action="/add-to-cart" class="d-inline">
+                    <input type="hidden" name="prod_id" value="{{ product.id }}">
+                    <button type="submit" class="btn btn-primary shadow px-5 py-2">افزودن به سبد خرید</button>
+                </form>
+                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">خرید</a>
             </div>
         </div>
     </div>
