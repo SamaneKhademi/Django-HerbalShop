@@ -14,8 +14,8 @@
             <div class="productdetail col-lg-6">
                 <h1 style="font-size: 35px;">{{ product.title }}</h1>
                 <br>
-                <h5 >{{ product.discounted_price }} تومان /</h5>
-                <small class="text-decoration-line-through text-muted fs-5"><del>{{ product.selling_price }} تومان</del></small>
+                <h5 >{{ product.discounted_price | intcomma }} تومان /</h5>
+                <small class="text-decoration-line-through text-muted fs-5"><del>{{ product.selling_price |intcomma }} تومان</del></small>
                 <br><br>
                 <h4>ویژه گی محصول</h4>
                 <ul class="fs-5">
