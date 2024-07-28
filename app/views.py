@@ -70,13 +70,11 @@ class AllProductsView(View):
 
 class ProductDetail(View):
     def get(self, request, pk):
-        user = request.user
         product = Product.objects.get(pk=pk)
-        if user.is_authenticated:
-            wishlist = Wishlist.objects.filter(Q(product=product) & Q(user=request.user))
         totalitem = 0
         wishitem = 0
         if request.user.is_authenticated:
+            wishlist = Wishlist.objects.filter(Q(product=product) & Q(user=request.user))
             totalitem = len(Cart.objects.filter(user=request.user))
             wishitem = len(Wishlist.objects.filter(user=request.user))
         return render(request, 'app/product-detail.html', locals())
@@ -275,14 +273,16 @@ def remove_cart(request):
 
 def plus_wishlist(request):
     if request.method == "GET":
-        prod_id = request.GET['prod_id']
-        product = Product.objects.get(id=prod_id)
-        user = request.user
-        Wishlist(user=user, product=product).save()
-        data={
-            'message': 'به موارد دلخواه اضافه شد.'
-        }
-        return JsonResponse(data)
+        if request.user.is_authenticated:
+            prod_id = request.GET['prod_id']
+            product = Product.objects.get(id=prod_id)
+            user = request.user
+            Wishlist(user=user, product=product).save()
+            data={
+                'message': 'به موارد دلخواه اضافه شد.'
+            }
+            return JsonResponse(data)
+        return redirect('/registration')
 
 def minus_wishlist(request):
     if request.method == "GET":
@@ -295,3 +295,12 @@ def minus_wishlist(request):
         }
         return JsonResponse(data)
 
+def search(request):
+    query = request.GET['search']
+    totalitem = 0
+    wishitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+        wishitem = len(Wishlist.objects.filter(user=request.user))
+    product = Product.objects.filter(Q(title__icontains=query))
+    return render (request, 'app/search.html', locals())

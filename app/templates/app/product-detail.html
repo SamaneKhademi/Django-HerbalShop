@@ -39,12 +39,6 @@
                     <button type="submit" class="btn btn-primary shadow px-5 py-2 ms-3">افزودن به سبد خرید</button>
                 </form>
                 <!--<a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-3">خرید</a>-->
-
-                {% if wishlist %}
-                <a pid="{{ product.id }}" class="minus-wishlist btn btn-danger shadow px-3 py-2 ms-3"><i class="fa fa-heart fa-lg"></i></a>
-                {% else %}
-                <a pid="{{ product.id }}" class="plus-wishlist btn btn-success shadow px-3 py-2 ms-3"><i class="fa fa-heart fa-lg"></i></a>
-                {% endif %}
             {% endif %}
             </div>
         </div>

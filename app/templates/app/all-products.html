@@ -12,7 +12,7 @@
 
 <section>
     <div class="container px-2 mt-5">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div class="row row-cols-sm-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             {% for prod in products %}
                 <div class="text-center mb-4">
                     <a href="{% url 'product-detail' prod.id %}" class="btn">
