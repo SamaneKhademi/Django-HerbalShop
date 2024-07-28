@@ -20,7 +20,7 @@
 <body class="font" dir="rtl">
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-success">
         <div class="container-fluid my-1">
-            <a class="navbar-brand" href="{% url 'home' %}">فروشگاه من</a>
+            <a class="navbar-brand px-3" href="{% url 'home' %}">فروشگاه من</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,6 +69,12 @@
                             <li><a class="dropdown-item" href="{% url 'logout' %}">خروج</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link text-white"><i class="fa fa-heart"></i><span class="badge bg-danger">{% if wishitem > 0 %} {{ wishitem }} {% endif %}</span></a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a href="{% url 'showcart' %}" class="nav-link text-white">سبد خرید <span class="badge bg-danger">{% if totalitem > 0 %} {{ totalitem }} {% endif %}</span></a>
+                    </li>
 
                     {% else %}
 
@@ -80,13 +86,6 @@
                     </li>
 
                     {% endif %}
-
-                    <li class="nav-item mx-2">
-                        <a href="#" class="nav-link text-white">علاقه مندی ها 4</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a href="{% url 'showcart' %}" class="nav-link text-white">سبد خرید <span class="badge bg-danger">{% if totalitem > 0 %} {{ totalitem }} {% endif %}</span></a>
-                    </li>
 
                 </ul>
             </div>

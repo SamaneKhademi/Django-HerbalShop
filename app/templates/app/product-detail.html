@@ -21,11 +21,31 @@
                 <ul class="fs-5">
                     <li>{{ product.description }}</li>
                 </ul>
+            {% if user.is_authenticated %}
                 <form action="/add-to-cart" class="d-inline">
                     <input type="hidden" name="prod_id" value="{{ product.id }}">
-                    <button type="submit" class="btn btn-primary shadow px-5 py-2">افزودن به سبد خرید</button>
+                    <button type="submit" class="btn btn-primary shadow px-5 py-2 ms-3">افزودن به سبد خرید</button>
                 </form>
-                <a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">خرید</a>
+                <!--<a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-3">خرید</a>-->
+
+                {% if wishlist %}
+                <a pid="{{ product.id }}" class="minus-wishlist btn btn-danger shadow px-3 py-2 ms-3"><i class="fa fa-heart fa-lg"></i></a>
+                {% else %}
+                <a pid="{{ product.id }}" class="plus-wishlist btn btn-success shadow px-3 py-2 ms-3"><i class="fa fa-heart fa-lg"></i></a>
+                {% endif %}
+            {% else %}
+                <form action="/registration" class="d-inline">
+                    <input type="hidden" name="prod_id" value="{{ product.id }}">
+                    <button type="submit" class="btn btn-primary shadow px-5 py-2 ms-3">افزودن به سبد خرید</button>
+                </form>
+                <!--<a href="{% url 'showcart' %}" class="btn btn-warning shadow px-5 py-2 ms-3">خرید</a>-->
+
+                {% if wishlist %}
+                <a pid="{{ product.id }}" class="minus-wishlist btn btn-danger shadow px-3 py-2 ms-3"><i class="fa fa-heart fa-lg"></i></a>
+                {% else %}
+                <a pid="{{ product.id }}" class="plus-wishlist btn btn-success shadow px-3 py-2 ms-3"><i class="fa fa-heart fa-lg"></i></a>
+                {% endif %}
+            {% endif %}
             </div>
         </div>
     </div>
