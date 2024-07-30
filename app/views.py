@@ -13,7 +13,6 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
-@login_required
 def home(request):
     totalitem = 0
     wishitem = 0
@@ -22,7 +21,6 @@ def home(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     return render(request, 'app/index.html', locals())
 
-@login_required
 def about(request):
     totalitem = 0
     wishitem = 0
@@ -31,7 +29,6 @@ def about(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     return render(request, 'app/about.html', locals())
 
-@login_required
 def contact(request):
     totalitem = 0
     wishitem = 0
@@ -40,7 +37,6 @@ def contact(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     return render(request, 'app/contact.html', locals())
 
-@method_decorator(login_required, name='dispatch')
 class CategoryView(View):
     def get(self, request, val):
         totalitem = 0
@@ -52,7 +48,6 @@ class CategoryView(View):
         title = Product.objects.filter(category=val).values('title')
         return render(request, 'app/category.html', locals())
 
-@method_decorator(login_required, name='dispatch')
 class CategoryTitle(View):
     def get(self, request, val):
         product = Product.objects.filter(title=val)
@@ -64,7 +59,6 @@ class CategoryTitle(View):
             wishitem = len(Wishlist.objects.filter(user=request.user))
         return render(request, 'app/category.html', locals())
 
-@method_decorator(login_required, name='dispatch')
 class AllProductsView(View):
     def get(self, request):
         products = Product.objects.all()
@@ -75,7 +69,6 @@ class AllProductsView(View):
             wishitem = len(Wishlist.objects.filter(user=request.user))
         return render(request, 'app/all-products.html', locals())
 
-@method_decorator(login_required, name='dispatch')
 class ProductDetail(View):
     def get(self, request, pk):
         product = Product.objects.get(pk=pk)
@@ -309,7 +302,6 @@ def minus_wishlist(request):
         }
         return JsonResponse(data)
 
-@login_required
 def search(request):
     query = request.GET['search']
     totalitem = 0
