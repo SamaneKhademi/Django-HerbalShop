@@ -302,6 +302,17 @@ def minus_wishlist(request):
         }
         return JsonResponse(data)
 
+@login_required
+def show_wishlist(request):
+    user = request.user
+    totalitem = 0
+    wishitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+        wishitem = len(Wishlist.objects.filter(user=request.user))
+    product = Wishlist.objects.filter(user=user)
+    return render(request, 'app/wishlist.html', locals())
+
 def search(request):
     query = request.GET['search']
     totalitem = 0

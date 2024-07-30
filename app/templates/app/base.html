@@ -70,10 +70,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-white"><i class="fa fa-heart"></i><span class="badge bg-danger">{% if wishitem > 0 %} {{ wishitem }} {% endif %}</span></a>
+                        <a href="{% url 'showwishlist' %}" class="nav-link text-white"><i class="fa fa-heart"></i><span class="badge bg-danger">{% if wishitem > 0 %} {{ wishitem }} {% endif %}</span></a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a href="{% url 'showcart' %}" class="nav-link text-white">سبد خرید <span class="badge bg-danger">{% if totalitem > 0 %} {{ totalitem }} {% endif %}</span></a>
+                        <a href="{% url 'showcart' %}" class="nav-link text-white"><i class="fa fa-shopping-cart"></i><span class="badge bg-danger">{% if totalitem > 0 %} {{ totalitem }} {% endif %}</span></a>
                     </li>
 
                     {% else %}
