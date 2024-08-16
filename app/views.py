@@ -178,6 +178,13 @@ class updateAddress(View):
             messages.warning(request, 'مقادیر ورودی نامعتبر است.')
         return redirect('address')
 
+@method_decorator(login_required, name='dispatch')
+class deleteAddress(View):
+    def get(self, request, pk):
+        add = Customer.objects.get(pk=pk)
+        add.delete()
+        return redirect('address')
+
 @login_required
 def LogoutView(request):
     logout(request)

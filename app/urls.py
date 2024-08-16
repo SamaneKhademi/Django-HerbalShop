@@ -18,6 +18,7 @@ urlpatterns = [
     path('profile/', views.ProfileView.as_view(), name='profile'),
     path('address/', views.address, name='address'),
     path('updateAddress/<int:pk>',views.updateAddress.as_view(), name='updateAddress'),
+    path('deleteAddress/<int:pk>',views.deleteAddress.as_view(), name='deleteAddress'),
 
     path('add-to-cart/', views.add_to_cart, name='add-to-cart'),
     path('cart/', views.show_cart, name='showcart'),

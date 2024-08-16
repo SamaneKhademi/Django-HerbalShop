@@ -14,34 +14,31 @@
                 <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">آدرس</a></li>
             </ul>
         </div>
-        <div class="col-sm-8 offset-sm-1 mx-5">
+        <div class="col-sm-8 offset-sm-1">
             <div class="row">
                 {% for ad in add %}
-                <div class="col-sm-6">
-                    <div class="card m-2">
-                        <div class="card-body">
+                <div class="col-sm-6 py-2">
+                    <div class="card m-2 h-100">
+                        <div class="card-header">
                             <h4>آدرس {{ forloop.counter }}</h4>
+                        </div>
+                        <div class="card-body">
                             <p>نام : {{ ad.name }}</p>
                             <p>موبایل : {{ ad.mobile }}</p>
                             <p>استان : {{ ad.state }}</p>
                             <p>شهرستان : {{ ad.city }}</p>
                             <p>آدرس : {{ ad.locality }}</p>
                             <p>کدپستی : {{ ad.zipcode }}</p>
-                            <p class="text-center"><a href="{% url 'updateAddress' pk=ad.id %}" type="button" class="btn btn-success">بروزرسانی</a></p>
+                        </div>
+                        <div class="card-footer d-flex justify-content-evenly">
+                            <a href="{% url 'updateAddress' pk=ad.id %}" type="button" class="btn btn-success">بروزرسانی</a>
+                            <a href="{% url 'deleteAddress' pk=ad.id %}" type="button" class="btn btn-danger">حذف</a>
                         </div>
                     </div>
                 </div>
                 {% endfor %}
             </div>
         </div>
-
-
-
-
     </div>
 </div>
-
-
-
-
 {% endblock main-content %}
