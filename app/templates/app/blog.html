@@ -1,0 +1,30 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}وبلاگ{% endblock title %}
+
+
+{% block main-content %}
+<div class="titles container text-center py-5">
+    <h3>وبلاگ</h3>
+</div>
+<div class="pb-5">
+    <div class="container">
+            {% for blog_post in blog_post %}
+                <div class="card mb-3 mx-5">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            <img src="{{ blog_post.image.url }}" class="img-fluid rounded" alt="..." style="max-width: 200px;">
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ blog_post.title }}</h5>
+                                <p class="card-text">{{ blog_post.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+{% endblock main-content %}

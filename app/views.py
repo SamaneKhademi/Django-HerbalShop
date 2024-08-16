@@ -4,13 +4,14 @@ from django.http import JsonResponse
 
 from django.shortcuts import render, redirect
 from django.views import View
-from .models import Product, Customer, Cart, Wishlist
+from .models import Product, Customer, Cart, Wishlist, BlogPost
 from .forms import CustomerRegistrationForm, CustomerProfileForm
 from django.contrib import messages
 from django.contrib.auth import logout
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.core.paginator import Paginator
 
 
 def home(request):
@@ -19,7 +20,21 @@ def home(request):
     if request.user.is_authenticated:
         totalitem = len(Cart.objects.filter(user=request.user))
         wishitem = len(Wishlist.objects.filter(user=request.user))
+
+    blog_post = BlogPost.objects.all()
+    paginator = Paginator(blog_post, 2)  # Show 2 contacts per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     return render(request, 'app/index.html', locals())
+
+def blog(request):
+    blog_post = BlogPost.objects.all()
+    totalitem = 0
+    wishitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+        wishitem = len(Wishlist.objects.filter(user=request.user))
+    return render(request, 'app/blog.html', locals())
 
 def about(request):
     totalitem = 0
@@ -322,3 +337,5 @@ def search(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
     product = Product.objects.filter(Q(title__icontains=query))
     return render (request, 'app/search.html', locals())
+
+
